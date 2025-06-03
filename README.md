@@ -113,3 +113,17 @@ Below, a description of the parameters that can either be set in the `input_para
 # Optional arguments
 
 - `get_bams`: whether to generate BAM files as output
+
+
+### Plot options
+
+ggsashimi's internal options
+
+| Parameter | Description | Type | Default | Required | Hidden |
+|-----------|-----------|-----------|-----------|-----------|-----------|
+| `sashimi_min_cov` | minimum coverage of an event in order to be included | `integer` | 5 |  |  |
+| `sashimi_alpha` | alpha to apply on the coverage colour | `number` | 0.6 |  |  |
+| `sashimi_annot_height` | height of the annotations in the transcript track | `integer` | 5 |  |  |
+| `sashimi_width` | width in cm of the output plot | `integer` | 15 |  |  |
+| `sashimi_gtf_annotations` | whether to show reference annotations in sashimi plot (only if exons are annotated) | `boolean` | False |  |  |
+| `ref_gtf` | path to the reference GTF file to include transcript annotations in sashimis (if sashimi_gtf_annotations == True) | `string` | reference.gtf |  | 

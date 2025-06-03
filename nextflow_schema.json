@@ -80,41 +80,48 @@
                 }
             }
         },
-        "new_group_4": {
-            "title": "New Group 4",
+        "plot_options": {
+            "title": "Plot options",
             "type": "object",
-            "description": "",
+            "description": "ggsashimi's internal options",
             "default": "",
             "properties": {
-                "splice_models": {
-                    "type": "string",
-                    "default": "assets/splicemodels",
-                    "description": "path to splice_models directory",
-                    "format": "directory-path"
+                "sashimi_coords": {
+	            "type": "string",
+	            "default": "FASTA:0-6000",
+	            "description": "Coordinates in format FASTA:0-6000"
+	        },
+                "sashimi_min_cov": {
+                    "type": "integer",
+                    "default": 5,
+                    "description": "minimum coverage of an event in order to be included"
                 },
-                "me2x5": {
-                    "type": "string",
-                    "default": "assets/splicemodels/me2x5",
-                    "description": "path to me2x5 file",
-                    "format": "file-path"
+                "sashimi_alpha": {
+                    "type": "number",
+                    "default": 0.5,
+                    "description": "alpha to apply on the coverage colour"
                 },
-                "score3": {
-                    "type": "string",
-                    "default": "bin/score3.pl",
-                    "description": "path to score3 script",
-                    "format": "file-path"
+                "sashimi_annot_height": {
+                    "type": "integer",
+                    "default": 5,
+                    "description": "height of the annotations in the transcript track"
                 },
-                "score5": {
-                    "type": "string",
-                    "default": "bin/score5.pl",
-                    "description": "path to score5 script",
-                    "format": "file-path"
+                "sashimi_width": {
+                    "type": "integer",
+                    "default": 15,
+                    "description": "width in cm of the output plot"
                 },
-                "splice5seqs": {
+                "sashimi_gtf_annotations": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "whether to show reference annotations in sashimi plot (only if exons are annotated)"
+                },
+                "ref_gtf": {
                     "type": "string",
-                    "default": "assets/splicemodels/splice5sequences",
-                    "description": "path to splice5sequences file",
-                    "format": "file-path"
+                    "description": "path to the reference GTF file to include transcript annotations in sashimis",
+                    "format": "file-path",
+                    "default": "reference.gtf",
+                    "pattern": ".*\\.gtf$"
                 }
             }
         }
@@ -127,7 +134,7 @@
             "$ref": "#/definitions/optional_parameters"
         },
         {
-            "$ref": "#/definitions/new_group_4"
+            "$ref": "#/definitions/plot_options"
         }
     ]
 }

@@ -10,6 +10,7 @@ if (length(args) == 0) {
     stop("No input files provided")
 }
 
+args <- c("/media/neuro-rna/E2285B0C285ADF5B/experiments/VIVE/EF1a_CAR_Fw/vive-pipeline_output/splice_sites/5ss_scores.tsv", "/media/neuro-rna/E2285B0C285ADF5B/experiments/VIVE/EF1a_CAR_Fw/vive-pipeline_output/splice_sites/3ss_scores.tsv")
 ss5_scores <- read_delim(args[1], delim = "\t")
 ss3_scores <- read_delim(args[2], delim = "\t")
 

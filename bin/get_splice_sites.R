@@ -8,6 +8,7 @@ rm(list = ls())
 library(dplyr) #For %>% pipes.
 library(stringr) #For str_sub function.
 library(readr) #For write_lines function.
+library(seqinr)
 
 # Read command line arguments ---------------------------------------------
 args <- commandArgs(trailingOnly = TRUE)
@@ -20,8 +21,8 @@ mes_3ss <- args[2]
 seq_dir <- args[3]
 
 # target sequence
-sequence_5ss <- args[4]  # viral seq
-sequence_3ss <- args[4]  # viral seq
+sequence_5ss <- read.fasta(args[4], seqtype = "DNA", as.string=TRUE)  # viral seq
+sequence_3ss <- read.fasta(args[4], seqtype = "DNA", as.string=TRUE)  # viral seq
 
 # me2x5 file path
 me2x5 <- args[5]
@@ -96,13 +97,12 @@ get_3ss_from_seq <- function(sequence){
 ss5_scores <- get_5ss_from_seq(sequence_5ss)
 
 df5 <- data.frame(ss5_scores)
-df5$location2<-seq_along(df5[,1])
+df5$splice<-seq_along(df5[,1]) + 2
 
 ss3_scores <- get_3ss_from_seq(sequence_3ss)
 
 df3 <- data.frame(ss3_scores)
-df3$location<-seq_along(df3[,1])
-df3$location2<-(df3$location + 17)
+df3$splice <- seq_along(df3[,1]) + 19
 
 # Output ------------------------------------------------------------------
 write_delim(df5, file = "5ss_scores.tsv", delim = "\t")

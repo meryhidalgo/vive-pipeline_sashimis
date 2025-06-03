@@ -7,6 +7,7 @@ include { fastqc; multiqc } from './modules/quality_control'
 include { bam2fastq; align as target_align; align as secondary_align} from './modules/alignment'
 include { summary_secondary; summary_base } from './modules/final_stats'
 include { seqAnalysis } from './modules/alternative_splicing'
+include { sashimi} from './modules/create_plots'
 
 // Define the input parameters
 Channel
@@ -22,6 +23,9 @@ if (params.assess_secondary) {
         .fromPath(params.secondary_ref_fa, checkIfExists: true)
         .set { secondary_ref_fa }
 }
+
+sashimi_palette = Channel.value(projectDir + "/assets/palette.tsv")
+plots_csv = Channel.fromPath(params.plots_config)
 
 // Define the workflow
 workflow {
@@ -73,4 +77,7 @@ workflow {
     
     // Run multiqc
     multiqc(porechop.out.logs, fastqc.out)
+    
+    // ---- Create plots ----
+    sashimi(target_align.out.mapped_bam, target_align.out.mapped_bai, sashimi_palette)
 }
