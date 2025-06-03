@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://raw.githubusercontent.com/a-hr/vive-pipeline/master/nextflow_schema.json",
-    "title": "a-hr/vive-pipeline pipeline parameters",
+    "$id": "https://raw.githubusercontent.com/meryhidalgo/vive-pipeline_sashimi/master/nextflow_schema.json",
+    "title": "meryhidalgo/vive-pipeline_sashimi pipeline parameters",
     "description": "A pipeline to preprocess, align and analyze ONT direct RNA and cDNA sequencing data.",
     "type": "object",
     "definitions": {

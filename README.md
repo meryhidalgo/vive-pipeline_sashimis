@@ -1,5 +1,11 @@
 # VIVE Biotech pipeline
 
+Author: Álvaro Herrero Reiriz
+
+Modified by: María Carazo Hidalgo (on Jun 2025)
+- Solved splice score script
+- Integration of sashimi plots
+  
 
 ## Introduction
 
@@ -8,9 +14,10 @@ A pipeline to process Nanopore sequencing data. It performs the following steps:
 1. QC of the FASTQ files
 2. Removal of adapters and primers
 3. Alignment of the reads to the reference genome
-4. Optional: alignment to a secondary reference genome (i.e. spike-ins)
+4. Optional: alignment to a secondary reference genome (i.e. spike-in
 5. Generation of BAM files
 6. Splice-site scoring on the reference genome
+7. Visualization in sashimi plots
 
 ## Installation
 
