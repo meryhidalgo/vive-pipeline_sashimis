@@ -31,7 +31,7 @@
                 "output_dir": {
                     "type": "string",
                     "default": "output-test",
-                    "description": "oath to the output directory (will be created)",
+                    "description": "path to the output directory (will be created)",
                     "format": "directory-path"
                 },
                 "is_rna": {
@@ -70,6 +70,7 @@
                 },
                 "assess_secondary": {
                     "type": "boolean",
+                    "default": false,
                     "description": "whether to map against a secondary sequence (e.g. to use spike-ins)"
                 },
                 "secondary_ref_fa": {
@@ -88,8 +89,14 @@
             "properties": {
                 "sashimi_coords": {
 	            "type": "string",
-	            "default": "FASTA:0-6000",
-	            "description": "Coordinates in format FASTA:0-6000"
+	            "default": "FASTA:1-6000",
+	            "description": "Coordinates in format FASTA:1-6000"
+	        },
+	        "sashimi_palette": {
+	            "type": "string",
+	            "default": "palette.tsv",
+	            "description": "Color palette file. tsv file with >=1 columns, where the color is the first column. Both R color names and hexadecimal values are valid", 
+	            "format": "file-path"
 	        },
                 "sashimi_min_cov": {
                     "type": "integer",
@@ -110,18 +117,6 @@
                     "type": "integer",
                     "default": 15,
                     "description": "width in cm of the output plot"
-                },
-                "sashimi_gtf_annotations": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "whether to show reference annotations in sashimi plot (only if exons are annotated)"
-                },
-                "ref_gtf": {
-                    "type": "string",
-                    "description": "path to the reference GTF file to include transcript annotations in sashimis",
-                    "format": "file-path",
-                    "default": "reference.gtf",
-                    "pattern": ".*\\.gtf$"
                 }
             }
         }

@@ -24,7 +24,10 @@ if (params.assess_secondary) {
         .set { secondary_ref_fa }
 }
 
-sashimi_palette = Channel.value(projectDir + "/assets/palette.tsv")
+Channel
+    .fromPath(params.sashimi_palette, checkIfExists: true)
+    .set { sashimi_palette }
+    
 plots_csv = Channel.fromPath(params.plots_config)
 
 // Define the workflow

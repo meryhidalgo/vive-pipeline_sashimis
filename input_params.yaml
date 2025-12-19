@@ -1,10 +1,10 @@
 # Editabñe parameter file for the VIVE-Biotech pipeline
 
 # ---- required settings ----
-experiment_name: 'vive_CAR_FW_spliceScores'
-input_fastqs: "/media/neuro-rna/E2285B0C285ADF5B/experiments/VIVE/EF1a_CAR_Fw/Binded_Fastqs"
+experiment_name: 'fullReads_FW'
+input_fastqs: "/media/neuro-rna/E2285B0C285ADF5B/experiments/VIVE/EF1a_CAR_Fw/Binded_Fastqs/sept2025/fullReads/subset_0-18"
 plasmid_ref_fa: "/media/neuro-rna/E2285B0C285ADF5B/experiments/VIVE/EF1a_CAR_Fw/Reference_sequences/Provirus_pCCL_EF1a-GFP-CAR_NK.fa"
-output_dir: "/media/neuro-rna/E2285B0C285ADF5B/experiments/VIVE/EF1a_CAR_Fw/vive-pipeline_output"
+output_dir: "/media/neuro-rna/E2285B0C285ADF5B/experiments/VIVE/EF1a_CAR_Fw/Binded_Fastqs/sept2025/fullReads/subset_0-18/output"
 is_rna: false
 
 # ---- trimming ----
@@ -12,7 +12,7 @@ min_len: 100
 max_len: 8000
 
 # ---- evaluation of secondary species ----
-assess_secondary: true
+assess_secondary: false
 secondary_ref_fa: "/media/neuro-rna/E2285B0C285ADF5B/experiments/reference_files/human/GRCh38.primary_assembly.genome.fa"  # fasta file
 
 # ---- optional arguments ----
@@ -21,7 +21,7 @@ get_sashimis: true
 
 # ---- ggsashimi options ----
 sashimi_coords: "Provirus_pCCL_EF1a-GFP-CAR_NK:1-6000"
-sashimi_min_cov: 100
+sashimi_min_cov: 5
 sashimi_alpha: 0.6
 sashimi_annot_height: 5
 sashimi_width: 15

@@ -28,8 +28,7 @@ process sashimi {
         --alpha ${params.sashimi_alpha} \\
         --ann-height ${params.sashimi_annot_height} \\
         --width ${params.sashimi_width} \\
-        -C 3 --fix-y-scale\\
-        ${params.sashimi_gtf_annotations ? '-g ${params.ref_gtf}' : ''}
+        -C 3 --fix-y-scale
 
     """
 
